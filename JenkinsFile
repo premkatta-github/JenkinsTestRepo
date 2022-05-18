@@ -1,7 +1,11 @@
- stages {
+pipeline {
+    agent any
+
+    stages {
         stage('Hello') {
             steps {
-                echo 'Hello World from jenkins Github Repo file'
+                echo 'Hello World from jenkins file'
             }
         }
     }
+}
