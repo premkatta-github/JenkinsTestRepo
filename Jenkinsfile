@@ -4,8 +4,15 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World from jenkins file'
-                mkdir test_dir
+                echo 'Gradle clean started !!'
+                sh 'cd /android && .gradlew clean'
+                echo 'Build stared !!'
+                sh '.gradlew assembleRelease'
+                echo 'Build Completed !!'
+                sh 'cd /Users/premkatta/Documents && mkdir JenkinsBuilds && cd JenkinsBuilds && mkdir android'
+                sh 'cd /Users/premkatta/.jenkins/workspace/PipeLine_Github_JenkinsRepo/android'
+                sh 'mv app/build/outputs/apk/release/app-universal.apk /Users/premkatta/Documents/JenkinsBuilds/android'
+                echo 'apk moved to Documents/JenkinsBuilds/android'
             }
         }
     }
