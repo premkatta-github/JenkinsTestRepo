@@ -5,6 +5,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Gradle clean started !!'
+                sh 'npm i'
                 sh 'cd /Users/premkatta/.jenkins/workspace/PipeLine_Github_JenkinsRepo/android/ && ./gradlew clean'
                 echo 'Build stared !!'
                 sh './gradlew assembleRelease'
