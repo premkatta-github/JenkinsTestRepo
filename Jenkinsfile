@@ -36,12 +36,12 @@ pipeline {
                 /usr/local/bin/npm i ;
                 cd android ;
                 ./gradlew clean ;
-                ./gradlew assembleRelease';
-                pwd;
+                ./gradlew assembleRelease ;
+                pwd ;
                 cd /Users/premkatta/Documents ;
                 mkdir JenkinsBuilds ; cd JenkinsBuilds ;
                 mkdir android ; cd android ;
-                pwd;
+                pwd ;
                 cd /Users/premkatta/.jenkins/workspace/PipeLine_Github_JenkinsRepo/android/ ;
                 mv app/build/outputs/apk/release/app-release.apk /Users/premkatta/Documents/JenkinsBuilds/android/
                 '''
