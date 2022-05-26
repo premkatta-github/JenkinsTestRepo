@@ -25,9 +25,26 @@ pipeline {
     stages {
         stage('android') {
             steps {
-                echo 'Gradle clean started !!'
-                sh '/usr/local/bin/node -v'
-                sh 'export PATH=$PATH:/usr/local/bin ; cd /Users/premkatta/.jenkins/workspace/PipeLine_Github_JenkinsRepo/ ; /usr/local/bin/npm i ; cd android ; ./gradlew clean ; ./gradlew assembleRelease'
+                echo 'Jenkin job started !!'
+                // ''' for multiline
+                sh '''
+                #!/bin/bash -l
+                user=premkatta
+                repo=PipeLine_Github_JenkinsRepo
+                export PATH=$PATH:/usr/local/bin ;
+                cd /Users/${user}/.jenkins/workspace/${repo}/ ;
+                /usr/local/bin/npm i ;
+                cd android ;
+                ./gradlew clean ;
+                ./gradlew assembleRelease';
+                cd /Users/premkatta/Documents/ ;
+                mkdir JenkinsBuilds ; cd JenkinsBuilds ;
+                mkdir android ; cd android ;
+                pwd;
+                cd /Users/premkatta/.jenkins/workspace/PipeLine_Github_JenkinsRepo/android/ ;
+                mv app/build/outputs/apk/release/app-release.apk /Users/premkatta/Documents/JenkinsBuilds/android/
+                '''
+                echo 'apk moved to Documents/JenkinsBuilds/android'
             }
         }
     }
