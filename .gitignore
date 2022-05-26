@@ -38,7 +38,7 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
-*.keystore
+#*.keystore
 !debug.keystore
 
 # fastlane
@@ -60,4 +60,4 @@ buck-out/
 /vendor/bundle/
 
 #gradle properties
-android/gradle.properties
+#android/gradle.properties
