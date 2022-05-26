@@ -37,7 +37,8 @@ pipeline {
                 cd android ;
                 ./gradlew clean ;
                 ./gradlew assembleRelease';
-                cd /Users/premkatta/Documents/ ;
+                pwd;
+                cd /Users/premkatta/Documents ;
                 mkdir JenkinsBuilds ; cd JenkinsBuilds ;
                 mkdir android ; cd android ;
                 pwd;
